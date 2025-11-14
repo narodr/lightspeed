@@ -64,6 +64,10 @@ nav {
     background: #fff;
 }
 
+blockquote {
+  font-style: italic;
+}
+
 @media (max-width: 38rem) {
     .homepage-list li a {
         width: 100%;
