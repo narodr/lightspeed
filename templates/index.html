@@ -62,7 +62,6 @@
         {% endif %}
       {% endfor %}
       </nav>
-    </div>
       {% endblock navbar%}
 
       {% block content %}
@@ -87,6 +86,35 @@
     </main>
     {% block after_main %}
     {% endblock after_main %}
+    <script>
+      const savedScroll = localStorage.getItem("scrollPosition");
+      const links = document.querySelectorAll("a");
+      const nav = document.querySelector("nav");
+      const navTop = nav.offsetTop;
+
+      window.addEventListener("load", scrollToNav);
+      window.addEventListener("pageshow", scrollToNav);
+      
+      links.forEach(link => {
+        link.addEventListener("click", updateScrollPos)
+      });
+
+      function scrollToNav () {
+        if (savedScroll !== null) {
+          const target = parseInt(savedScroll, 10);
+          window.scrollTo(0, target);
+        }
+      }
+
+      function updateScrollPos () {
+        if (window.scrollY >= navTop) {
+          localStorage.setItem("scrollPosition", navTop);
+        }
+        else {
+          localStorage.setItem("scrollPosition", window.scrollY);
+        }
+      };
+    </script>
   </body>
 </html>
 
