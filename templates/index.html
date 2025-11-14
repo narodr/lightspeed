@@ -9,7 +9,7 @@
 
     <title>{% block title %}{{ config.title }} {% if config.description -%} &middot; {{ config.description }}{%- endif%}{% endblock title %}</title>
     <meta name="description" content="{% block description %}{{ config.description }}{% endblock description %}" />
-    <link rel="shortcut icon"  href="{{ get_url(path="favicon.ico") | safe }}" />
+    <link rel="shortcut icon"  href="{{ get_url(path="img/0000ff.ico") | safe }}" />
     <link rel="alternate" type="application/atom+xml" title="RSS" href="{{ get_url(path="atom.xml") | safe }}">
 
     {% set data = load_data(path="public/style.css", format="plain") -%}
@@ -47,21 +47,23 @@
 
       {% block header %}
       <header role="banner">
-        <h3 style="margin-top:0;">
-          <a href="{{ config.base_url | safe }}" title="Home">{{ config.title }}</a>
-          <br /><small>{{ config.description }}</small>
+        <h3 style="margin-top:0; margin-bottom:0;">
+          {{ config.title }}
         </h3>
       </header>
-      <nav style="margin-bottom:1rem;" role="navigation">
-          {% for item in config.extra.footer_links %}
-            <a href="{{ item.url | replace(from="$BASE_URL", to=config.base_url) | safe }}">{{ item.name }}</a>
-            {% if loop.last %}{% else %}
-              <span>&nbsp;</span>
-            {% endif %}
-          {% endfor %}
-      </nav>
-      <hr />
       {% endblock header %}
+
+      {% block navbar %}
+      <nav>
+      {% for item in config.extra.footer_links %}
+        <a href="{{ item.url | replace(from="$BASE_URL", to=config.base_url) | safe }}">{{ item.name }}</a>
+        {% if loop.last %}{% else %}
+          <span>&nbsp;</span>
+        {% endif %}
+      {% endfor %}
+      </nav>
+    </div>
+      {% endblock navbar%}
 
       {% block content %}
       <ul class="homepage-list">

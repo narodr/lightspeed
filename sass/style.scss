@@ -2,7 +2,7 @@ html,
 body {
     background: #fff;
     color: #111;
-    font: 16px/1.2 -apple-system, BlinkMacSystemFont, "avenir next", avenir,
+    font: 16px/1.5 -apple-system, BlinkMacSystemFont, "avenir next", avenir,
         helvetica, "helvetica neue", ubuntu, roboto, noto, "segoe ui", arial,
         sans-serif;
     scrollbar-gutter: stable both-edges;
@@ -51,6 +51,17 @@ img {
     flex-wrap: wrap;
     justify-content: space-between;
     margin-bottom: 10px;
+}
+
+hr.page {
+    display: none;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #fff;
 }
 
 @media (max-width: 38rem) {

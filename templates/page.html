@@ -18,7 +18,11 @@
   {{ page.content | safe }}
 
   {% if page.date %}
-    <p style="font-size:90%; text-align: right;"><time datetime="{{ page.date | date(format="%+") }}">{{ page.date | date(format="%B %d, %Y") }}</time></p>
+    <p style="margin-top:10%; font-size:90%; text-align: right;">
+      <time datetime="{{ page.date | date(format="%+") }}">
+        {{ page.date | date(format="%b %d, %Y") }}
+      </time>
+    </p>
   {% endif %}
 
 </article>
