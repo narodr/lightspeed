@@ -1,6 +1,6 @@
 {% extends "index.html" %}
 
-{% block title %}{{ page.title }} &middot; {{ config.title }}{% endblock title %}
+{% block title %}{{ page.title }} &middot; {{ config.author }}{% endblock title %}
 {% block description %}{{ page.description | default(value=config.description) }}{% endblock description %}
 {% block ogtitle %}{{ page.title }}{% endblock ogtitle %}
 {% block ogdesc %}{{ page.description }}{% endblock ogdesc %}
